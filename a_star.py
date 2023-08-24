@@ -14,7 +14,7 @@ def manhattan(node1,node2):
 
 def a_star(g:nx.Graph,start,finish,heuristic):
 
-    def least_f_cost_node(node_list):
+    def lowest_f_cost_node(node_list):
         min = g.nodes[node_list[0]]['f_cost']
         min_node = node_list[0]
         for node in node_list:
@@ -47,7 +47,7 @@ def a_star(g:nx.Graph,start,finish,heuristic):
     open.insert(0,start)
 
     while len(open) > 0:
-        current = least_f_cost_node(open)
+        current = lowest_f_cost_node(open)
 
         if current == finish:
             return backtrack(current)
